@@ -36,7 +36,8 @@ class Herbivore extends Animal {
 
         // retourne un nouvel animal
         if ($this->genre === "femelle") {
-            return new Herbivore("", $this->titre, $this->type, $newGenre);
+            $nouvelAnimal = new Herbivore("", $this->titre, $this->type, $newGenre);
+            return "<p>$nouvelAnimal->titre, $nouvelAnimal->type, $nouvelAnimal->genre</p>";
         }
     }
 }

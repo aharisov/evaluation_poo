@@ -48,13 +48,14 @@ class Zoo {
 
     // la methode pour afficher une message que l'animal est né
     public function naissance() {
-        return "<h4>Un nouvel animal est né dans le Zoo.</h4>";
+        return "<h4>Un nouvel animal est né dans le Zoo :</h4>";
     }
 
     // la methode pour afficher chaque animal au visiteurs
     public function ouvrirLesPortes() {
         $html = "<h2>Le parcours commence !</h2>";
 
+        $cnt = 1;
         foreach ($this->visiteurs as $visiteur) {
             $html .= "<h3>$visiteur regarde les animaux suivants :</h3>";
 
@@ -63,6 +64,22 @@ class Zoo {
                 $html .= "<li>" . $animal->faireLeShow() . "</li>";
             }
             $html .= "</ul> <br> <hr>";
+
+            // trouve la moitié des visiteurs pour appeler de la naissance du nouvel animal
+            if ($cnt == ceil(count($this->visiteurs)/2)) {
+                if ($this->animaux[1]->donnerNaissance()) {
+                    $html .= $this->naissance();
+                    $html .= $this->animaux[1]->donnerNaissance();
+                }
+            }
+
+            $cnt++;
+        }
+
+        // si un nouvel animal est né 
+        if ($this->animaux[0]->donnerNaissance()) {
+            $html .= $this->naissance();
+            $html .= $this->animaux[0]->donnerNaissance();
         }
 
         return $html;
