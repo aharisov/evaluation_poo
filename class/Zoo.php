@@ -60,9 +60,11 @@ class Zoo {
 
             $html .= "<ul>";
             foreach ($this->animaux as $animal) {
-                $html .= "<li>$animal->faireLeShow()</li>";
+                $html .= "<li>" . $animal->faireLeShow() . "</li>";
             }
             $html .= "</ul> <br> <hr>";
         }
+
+        return $html;
     }
 }

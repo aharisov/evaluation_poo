@@ -11,11 +11,11 @@
         error_reporting(E_ALL);
 
         // inclut les necessaires classes et fonctions
-        require("class/Zoo.php");
         require("helpers.php");
+        require("class/Zoo.php");
 
         // le nombre minimum de billets qui doivent être vendus pour ouvrir le zoo
-        $minBilletsVendus = 5;
+        $minBilletsVendus = 1;
         // les visiteurs par default
         $visiteurs = ["Loïc", "Yannick", "Yassine", "Enzo", "Pierre"];
         // un tableau pour générer carnivores
@@ -48,15 +48,16 @@
 
     <main>
         <?php
+            // si le Zoo est ouvert, faire un livraison, appelle la methode pour ouvrirLesPortes()
             if ($zoo->ouvreStatus === true) {
                 echo "<h1>Bienvenue dans notre zoo !</h1>";
                 echo $zoo->livraison($nombreLivres);
+                echo $zoo->ouvrirLesPortes();
             } else {
                 echo "<h1>Le Zoo est fermé maintenant.<br>Malheureusement, nous avons vendu juste $billetsVendus billet(s).<br>Reviens une autre fois, s'il vous plaît.</h1>";
             }
             
-
-            var_dump($zoo);
+            //var_dump($zoo);
         ?>
     </main>
 </body>
