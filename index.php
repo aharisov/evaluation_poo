@@ -12,6 +12,13 @@
 
         require("class/Carnivore.php");
         require("class/Zoo.php");
+
+        // le nombre minimum de billets qui doivent être vendus pour ouvrir le zoo
+        $minBilletsVendus = 5;
+        // les visiteurs par default
+        $visiteurs = ["Loïc", "Yannick", "Yassine", "Enzo", "Pierre"];
+        // pour stocker les animaux
+        $animaux = [];
     ?>
 </head>
 <body>
