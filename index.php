@@ -11,6 +11,7 @@
         error_reporting(E_ALL);
 
         require("class/Carnivore.php");
+        require("class/Zoo.php");
     ?>
 </head>
 <body>
@@ -23,6 +24,7 @@
 
             echo $herbivoreTest->faireLeShow();
             echo $carnivoreTest->faireLeShow();
+
         ?>
     </main>
 </body>
