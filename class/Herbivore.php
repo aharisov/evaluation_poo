@@ -3,19 +3,17 @@
 require("Animal.php");
 
 class Herbivore extends Animal {
-    // le type d'animal
-    public $type = ""; 
     
     // herite des propriétés de la classe Animal
-    public function __construct($nom, $titre, $type, $genre = "mâle") {
-        parent::__construct($nom, $titre, $type, $genre);
+    public function __construct($nom, $titre, $genre = "mâle", $type = "herbivore") {
+        parent::__construct($nom, $titre, $genre, $type);
     }
 
     // herite de la methode de la classe Animal
     // retourne le show
     public function faireLeShow() {
         // s'il y a le nom
-        if ($this->nom = "") {
+        if ($this->nom != "") {
             return "<p>Cet animal $this->type qui est $this->titre et qui s'appelle $this->nom.</p>";
         }
 
