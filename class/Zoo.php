@@ -36,6 +36,8 @@ class Zoo {
         } else {
             $this->ouvreStatus = false;
         }
+
+        return $billetsVendus;
     }
 
     // la methode pour faire livraison des animaux

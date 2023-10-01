@@ -29,17 +29,22 @@
     ?>
 </head>
 <body>
-    <h1>Bienvenue dans notre zoo</h1>
+    <?php 
+        // crée une instance de la classe Zoo
+        $zoo = new Zoo($animaux, $visiteurs);
+        $billetsVendus = $zoo->vendreBillet($minBilletsVendus);
+    ?>
 
     <main>
         <?php
-            $herbivoreTest = new Herbivore("Coco", "Zebra", "femelle");
-            $carnivoreTest = new Carnivore("Luc", "Lion");
+            if ($zoo->ouvreStatus === true) {
+                echo "<h1>Bienvenue dans notre zoo !</h1>";
+            } else {
+                echo "<h1>Le Zoo est fermé maintenant.<br>Malheureusement, nous avons vendu juste $billetsVendus billet(s).<br>Reviens une autre fois, s'il vous plaît.</h1>";
+            }
+            
 
-            echo $herbivoreTest->faireLeShow();
-            echo $carnivoreTest->faireLeShow();
-
-            var_dump($animaux);
+            var_dump($zoo);
         ?>
     </main>
 </body>
